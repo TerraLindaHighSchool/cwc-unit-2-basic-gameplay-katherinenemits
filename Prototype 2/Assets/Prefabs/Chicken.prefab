@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 1031884072755520005}
   - component: {fileID: 1031884071419105219}
   - component: {fileID: -3016100276705119555}
-  - component: {fileID: 4498228942435895535}
+  - component: {fileID: 5049824966841750030}
   m_Layer: 0
   m_Name: Chicken
   m_TagString: Untagged
@@ -216,7 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 755edc39fb6924e49b808297897cb951, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &4498228942435895535
+--- !u!65 &5049824966841750030
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -224,11 +224,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1031884072746076425}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1954.9332, z: 1}
-  m_Center: {x: 0, y: -976.9667, z: 0}
+  m_Size: {x: 11.887992, y: 17.868414, z: 27.577166}
+  m_Center: {x: 0, y: 8.434207, z: 2.2207894}
 --- !u!1 &1031884072746082915
 GameObject:
   m_ObjectHideFlags: 0
@@ -992,7 +992,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1031884072746134077}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 6.2, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1031884072746442591}
