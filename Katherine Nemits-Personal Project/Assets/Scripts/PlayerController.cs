@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float horizontalInput;
-    public float speed = 10.0f;
-    public float xRange = 10;
+    private float zBound = 6;
+    public float speed = 30.0f;
+    public Rigidbody playerRb;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerRb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -23,21 +23,39 @@ public class PlayerController : MonoBehaviour
 
     void ConstrainPlayerPosition()
     {
-        if (transform.position.x < -xRange)
+        //prevent the player from leaving the top or bottom of the screen
+        if (transform.position.z < -zBound)
         {
-            transform.position = new Vector3(-xRange, transform.position.y, transform.position.z);
+            transform.position = new Vector3(transform.position.x, transform.position.y, zBound);
         }
-        //Keeps player from going off of right side of screen
-        if (transform.position.x > xRange)
+        
+        if (transform.position.z > zBound)
         {
-            transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
+            transform.position = new Vector3(transform.position.x, transform.position.y, zBound);
         }
     }
 
     void MovePlayer()
     {
-        //Moves player left and right
-        horizontalInput = Input.GetAxis("Horizontal");
-        transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * speed);
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
+
+        playerRb.AddForce(Vector3.forward * speed * verticalInput);
+        playerRb.AddForce(Vector3.right * speed * horizontalInput);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("Powerup"))
+        {
+            Destroy(other.gameObject);
+        }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("Player has collided with enemy.");
+        }
     }
 }
